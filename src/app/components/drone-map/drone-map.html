@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+  <!-- Pannello di controllo -->
+  <div class="control-panel">
+    <button (click)="lanciaFlotta()">🚀 Lancia Flotta</button>
+    
+    @if (allDrones.length > 0) {
+      <div class="drone-selector">
+        <label for="droneSelect">Seleziona Drone (Max 10): </label>
+        <select id="droneSelect" [(ngModel)]="selectedDroneId" (ngModelChange)="onDroneSelected($event)">
+          <option value="" disabled selected>-- Scegli un drone da tracciare --</option>
+          @for (drone of allDrones; track drone.id) {
+            <option [value]="drone.id">{{ drone.id }} ({{ drone.type }})</option>
+          }
+        </select>
+      </div>
+    }
+
+    <button (click)="richiamaFlotta()" [hidden]="allDrones.length === 0">🛑 Richiama Flotta</button>
+    <button class="emergency" (click)="arrestoEmergenza()">⚠️ Emergenza</button>
+  </div>
+
+  <!-- Barra dei droni tracciati -->
+  @if (trackedDrones.size > 0) {
+    <div class="active-drones-bar">
+      <span>Droni attivi ({{ trackedDrones.size }}/10):</span>
+      <div class="chips-container">
+        @for (droneId of trackedDrones.keys(); track droneId) {
+          <span class="drone-chip">
+            {{ droneId }}
+            <button (click)="removeTrackedDrone(droneId)">×</button>
+          </span>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- Mappa Leaflet -->
+  <div id="map" class="map-view"></div>
+</div>

@@ -1,0 +1,162 @@
+/* Contenitore principale della dashboard a schermo pieno e sfondo scuro */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: #0f172a; /* Sfondo scuro moderno (Slate 900) */
+  color: #f8fafc;
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Pannello di controllo superiore */
+.control-panel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background-color: #1e293b; /* Slate 800 */
+  border-bottom: 1px solid #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+/* Pulsanti stile enterprise */
+.control-panel button {
+  background-color: #3b82f6; /* Blu primario */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.control-panel button:hover {
+  background-color: #2563eb;
+}
+
+.control-panel button:active {
+  transform: scale(0.98);
+}
+
+.control-panel button.emergency {
+  background-color: #ef4444; /* Rosso allarme */
+}
+
+.control-panel button.emergency:hover {
+  background-color: #dc2626;
+}
+
+/* Select box personalizzata */
+.drone-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f172a;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #475569;
+}
+
+.drone-selector label {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.drone-selector select {
+  background: transparent;
+  color: #f8fafc;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.drone-selector select option {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+/* Barra dei droni attivi (Chips) */
+.active-drones-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+  font-size: 13px;
+  color: #94a3b8;
+  z-index: 999;
+}
+
+.chips-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.drone-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #334155;
+  color: #f8fafc;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-weight: 500;
+  border: 1px solid #475569;
+}
+
+.drone-chip button {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drone-chip button:hover {
+  color: #ef4444;
+}
+
+/* Area della mappa Leaflet */
+.map-view {
+  flex-grow: 1;
+  width: 100%;
+  background-color: #0f172a;
+  z-index: 1;
+}
+
+/* Stile del marker Leaflet */
+.leaflet-marker-icon.drone-marker-container {
+  background: transparent !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.drone-icon {
+  font-size: 30px;
+  line-height: 1;
+  text-align: center;
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.8));
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.drone-icon:hover {
+  transform: scale(1.3);
+}
