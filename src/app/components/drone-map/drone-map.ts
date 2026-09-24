@@ -161,6 +161,8 @@ export class DroneMap implements AfterViewInit, OnDestroy {
     if (this.selectedDroneId === droneId) {
       this.selectedDroneId = '';
     }
+
+    this.cdr.markForCheck();
   }
 
   richiamaFlotta(): void {
@@ -168,6 +170,8 @@ export class DroneMap implements AfterViewInit, OnDestroy {
     this.fleetService.recallFleet().subscribe({
       next: (response) => {
         console.log('[DroneMap] Flotta richiamata. Numero di droni rimanenti: ', this.allDrones.length);
+
+        this.allDrones = []; // Reset della lista dei droni
 
         this.cdr.markForCheck()//Forza Angular a rinfrescare la vista  
       },
