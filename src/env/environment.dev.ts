@@ -3,6 +3,6 @@ export const env = {
 
     api:{
        command: 'http://localhost:8091/fleet',
-       control: 'http://localhost:8092/api'
+       control: 'http://localhost:8092/control'
     }
 }

@@ -1,8 +1,8 @@
 export const env = {
-    production: false,
+    production: true,
 
     api:{
-       command: '/telemetry-service/v1',
-       control: '/telemetry-service/v1' 
+       command: '/api/fleet',
+       control: '/api/control' 
     }
 }
