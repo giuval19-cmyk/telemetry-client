@@ -47,7 +47,9 @@ export class DroneMap implements AfterViewInit, OnDestroy {
     // Aggiunge il layer delle tessere OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
-      attribution: '© OpenStreetMap contributors'
+      attribution: '© OpenStreetMap contributors',
+      // Forza il browser a passare l'origine corretta nelle richieste delle tile
+      referrerPolicy: 'strict-origin-when-cross-origin' as any
     }).addTo(this.map);
 
     //proviamo a ottenere la posizione dell'utente e centrare la mappa su di essa
